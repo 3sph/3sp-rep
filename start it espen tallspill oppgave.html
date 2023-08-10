@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>tall spillet!</title>
+    <style>
+        div{
+            color: blueviolet;
+            background-color: aqua;
+            padding: 10px;
+            margin: 10px;
+            border: solid green 10px;
+            width: 30px;
+            height: 30px;
+            float: left;
+            
+        }
+        div.førstpålinjen { 
+            clear: left;
+        }
+        
+    </style>
+</head>
+<body>
+    
+
+        <div id="r1k1" onclick="trykk(this,'r1k2','r2k1','r1k2','r2k1')">7</div>
+        <div id="r1k2" onclick="trykk(this,'r1k1','r1k3','r2k2','r2k2')">1</div>
+        <div id="r1k3" onclick="trykk(this,'r1k2','r2k3','r1k2','r2k3')">2</div>
+        
+        <div id="r2k1" class="førstpålinjen" onclick="trykk(this,'r2k2','r1k1','r3k1','r3k1')">5</div>
+        <div id="r2k2" onclick="trykk(this,'r1k2','r3k2','r2k1','r2k3')"></div>
+        <div id="r2k3" onclick="trykk(this,'r1k3','r3k3','r2k2','r2k2')">3</div>
+        
+        <div id="r3k1" class="førstpålinjen" onclick="trykk(this,'r2k1','r3k2','r2k1','r3k2')">8</div>
+        <div id="r3k2" onclick="trykk(this,'r3k1','r3k3','r2k2','r2k2')">4</div>
+        <div id="r3k3" onclick="trykk(this,'r3k2','r2k3','r3k2','r2k3')">6</div>
+        
+        <script>
+            
+
+           function trykk(tagelement, alt1, alt2, alt3, alt4) {
+            if (document.getElementById(alt1).innerHTML=='') {
+                document.getElementById(alt1).innerHTML=tagelement.innerHTML;
+                 tagelement.innerHTML = '';
+        }
+        if (document.getElementById(alt2).innerHTML=='') {
+                document.getElementById(alt2).innerHTML=tagelement.innerHTML;
+                 tagelement.innerHTML = '';
+        }  if (document.getElementById(alt3).innerHTML=='') {
+                document.getElementById(alt3).innerHTML=tagelement.innerHTML;
+                 tagelement.innerHTML = '';
+        } if (document.getElementById(alt4).innerHTML=='') {
+                document.getElementById(alt4).innerHTML=tagelement.innerHTML;
+                 tagelement.innerHTML = '';
+        }
+        sjekkomkorrekt()
+        
+} const vinnertall = [1, 2, 3, 4, 5, 6, 7, 8, ''];
+
+function sjekkomkorrekt() {
+  const currentOrder = [
+    document.getElementById('r1k1').innerHTML,
+    document.getElementById('r1k2').innerHTML,
+    document.getElementById('r1k3').innerHTML,
+    document.getElementById('r2k1').innerHTML,
+    document.getElementById('r2k2').innerHTML,
+    document.getElementById('r2k3').innerHTML,
+    document.getElementById('r3k1').innerHTML,
+    document.getElementById('r3k2').innerHTML,
+    document.getElementById('r3k3').innerHTML,
+  ];
+  
+  if (JSON.stringify(currentOrder) === JSON.stringify(vinnertall)) {
+    alert('vinner vinner kylling til middag');
+  }
+}
+
+        
+    
+            
+        
+    
+
+        </script>
+</body>
+</html>
